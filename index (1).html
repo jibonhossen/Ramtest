@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Counter</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #4f46e5, #a855f7);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid #d1d5db;
+      font-size: 1rem;
+    }
+    
+    .button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ec4899;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #db2777;
+    }
+    
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.25rem;
+      color: #4f46e5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Number Counter</h1>
+    <input type="number" id="numberInput" class="input-field" placeholder="Enter a number">
+    <button class="button" onclick="startCounting()">Submit</button>
+    <div id="result" class="result"></div>
+  </div>
+  <script>
+    function startCounting() {
+      const input = document.getElementById('numberInput').value;
+      const resultDiv = document.getElementById('result');
+      const number = parseInt(input, 10);
+      
+      if (!isNaN(number) && number > 0) {
+        resultDiv.textContent = '';
+        for (let i = 1; i <= number; i++) {
+          console.log(i);
+          
+          
+          setTimeout(() => {
+            resultDiv.textContent = `Counting: ${i}`;
+          }, i * 10);
+        }
+      } else {
+        resultDiv.textContent = 'Please enter a valid number';
+      }
+    }
+  </script>
+</body>
+
+</html>
